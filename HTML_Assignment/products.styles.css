@@ -1,0 +1,39 @@
+.headerpg {
+  width: 100%;
+  height: 30vh;
+  background: linear-gradient(57deg, #00c6a7, #4a79be);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 30%, 0% 60%);
+  line-height: 100px;
+  padding-left: 100px;
+  font-size: 50px;
+}
+
+.product {
+  min-width: 30%;
+  height: 240px;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 0 7.5px 15px;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+.product:hover {
+  transform: scale(1.1);
+  transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
+.content {
+  height: 90px;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: white;
+  opacity: 0.7;
+  position: absolute;
+}
