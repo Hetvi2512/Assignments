@@ -7,3 +7,9 @@ Below is the screenshot of Home Page:
 ![image](https://user-images.githubusercontent.com/48653193/100414792-96553800-30a0-11eb-9138-ead13a7c3043.png)
 ![image](https://user-images.githubusercontent.com/48653193/100414850-c1d82280-30a0-11eb-9547-496ef8865d87.png)
 ![image](https://user-images.githubusercontent.com/48653193/100414834-b38a0680-30a0-11eb-99e9-7d98c2b3befa.png)
+
+Below is the screenshot of Products Page:
+
+![image](https://user-images.githubusercontent.com/48653193/100414982-17143400-30a1-11eb-857f-fe47b14ff141.png)
+![image](https://user-images.githubusercontent.com/48653193/100414995-20050580-30a1-11eb-801d-d85e42c8c4d3.png)
+
