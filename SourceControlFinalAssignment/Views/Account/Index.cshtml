@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (Session["email"] != null)
+{
+    <!-- CSS only -->
+    <h1>User Dashboard</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in (IEnumerable<SourceControlFinalAssignment.Models.User>)Session["userinfo"])
+            {
+                
+                <tr>
+
+                    <td scope="row">@item.firstName</td>
+                    <td scope="row">@item.lastName</td>
+                    <td scope="row">@item.age</td>
+                    <td scope="row">@item.City</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+  
+}
+else
+{
+    <h1>Please Login or Sign-up to view your Details</h1>
+}
