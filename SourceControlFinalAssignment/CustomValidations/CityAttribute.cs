@@ -15,7 +15,7 @@ namespace SourceControlFinalAssignment.CustomValidations
 
             if (city != "Rajkot" && city != "Ahemdabad" && city != "Mumbai" && city != "Delhi")
             {
-                return new ValidationResult("Invalid city, Valid values are Rajkot, Mumbai, and Delhi.");
+                return new ValidationResult("Invalid city, Valid values are Rajkot, Mumbai, Ahemdabad and Delhi.");
             }
             return ValidationResult.Success;
         }
