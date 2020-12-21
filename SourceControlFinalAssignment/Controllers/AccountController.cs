@@ -37,8 +37,9 @@ namespace SourceControlFinalAssignment.Controllers
             context.Dispose();
         }
         // GET: Account
-        public ActionResult Index()
+        public ActionResult Index(LoginModel login)
         {
+           
             if((Session["email"] != null)){
                 Session["userinfo"] = context.Users.ToList();
 
@@ -55,31 +56,45 @@ namespace SourceControlFinalAssignment.Controllers
         [HttpPost]
         public ActionResult Register(User user)
         {
+            try {
+                if (ModelState.IsValid)
+                {
 
-            
-                if (!context.Users.Any(m => m.email == user.email))
-                {
-                    if(user.FileName != null)
+                    if (!context.Users.Any(m => m.email == user.email))
                     {
-                        string imgName = "user_" + DateTime.Now.ToString("ddMMyyHHmmssfff") + Path.GetExtension(user.FileName.FileName);
-                        user.FileName.SaveAs(Path.Combine(Server.MapPath("~/Scripts/UploadedFiles"), imgName));
-                        user.Image = "~/Scripts/UploadedFiles" + imgName;
-                        context.Users.Add(user);
-                        context.SaveChanges();
-                        Session["email"] = user.email;
-                        return RedirectToAction("Index", "Account");
+                        if (user.FileName != null)
+                        {
+                            string imgName = "user_" + DateTime.Now.ToString("ddMMyyHHmmssfff") + Path.GetExtension(user.FileName.FileName);
+                            user.FileName.SaveAs(Path.Combine(Server.MapPath("~/Scripts/UploadedFiles"), imgName));
+                            user.Image = "~/Scripts/UploadedFiles" + imgName;
+                            context.Users.Add(user);
+                            context.SaveChanges();
+                            Session["email"] = user.email;
+                            log.Info("Registration Successfull for" + Session["email"]);
+                            return RedirectToAction("Index", "Account");
+                        }
+
                     }
-                   
+
+                    else
+                    {
+                 
+                        ModelState.AddModelError("Error", "Email-Id Already Exists!");
+                        return View();
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("Error", "Email-Id Already Exists!");
-                    return View();
-                }
-            
+                log.Error("Model state not valid, Registration Unsuccessfull !");
+            }
+            catch (Exception ex)
+            {
+                log.Info(ex.Message);
+                return View();
+            }
             return View();
+  }
+           
             
-        }
+ 
 
         public ActionResult Login()
         {
@@ -90,20 +105,19 @@ namespace SourceControlFinalAssignment.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel login)
         {
-            log.Debug("Debug message");
-            log.Warn("Warn message");
-            log.Error("Error message");
-            log.Fatal("Fatal message");
             if (ModelState.IsValid)
             {
-                if(context.Users.Where(m=>m.email == login.email && m.password == login.password).FirstOrDefault() != null)
+                log.Debug("Before Login");
+                if (context.Users.Where(m=>m.email == login.email && m.password == login.password).FirstOrDefault() != null)
                 {
                     Session["email"] = login.email.ToString();
-                   
-                  return RedirectToAction("Index", "Account");
+                    log.Info("Session is set for" +Session["email"]);
+                    log.Debug("After Login");
+                    return RedirectToAction("Index", "Account");
                 }
                 else
                 {
+                    log.Warn("Email or password already exists");
                     ModelState.AddModelError("Error", "Email-Id or Password is not matching");
                     return View();
                 }
@@ -114,6 +128,7 @@ namespace SourceControlFinalAssignment.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
+            log.Info("Session is unset");
             return RedirectToAction("Login", "Account");
         }
        

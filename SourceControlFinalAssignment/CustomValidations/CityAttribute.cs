@@ -8,16 +8,14 @@ namespace SourceControlFinalAssignment.CustomValidations
 {
     public class CityAttribute : ValidationAttribute
     {
-        protected override ValidationResult IsValid
-   (object value, ValidationContext validationContext)
-        {
-            string city = value.ToString();
+       
+            public string AllowedCities { get; set; }
 
-            if (city != "Rajkot" && city != "Ahemdabad" && city != "Mumbai" && city != "Delhi")
-            {
-                return new ValidationResult("Invalid city, Valid values are Rajkot, Mumbai, and Delhi.");
-            }
-            return ValidationResult.Success;
+            public override bool IsValid(object value)
+        {
+            string city = value as string;
+            return AllowedCities.Contains(city);
         }
+        
     }
 }

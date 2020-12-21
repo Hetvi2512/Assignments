@@ -41,7 +41,7 @@ namespace SourceControlFinalAssignment.Models
         public string mobile_no { get; set; }
 
         [Required(ErrorMessage = "This Field is required")]
-        [City]
+        [City(ErrorMessage = "Allowed Cities are Rajkot, Mumbai, Delhi", AllowedCities = "Rajkot,Delhi,Mumbai")]
         public string City { get; set; }
 
         [DisplayName("Password")]
@@ -60,11 +60,12 @@ namespace SourceControlFinalAssignment.Models
 
 
         [FileExtensions(Extensions = "png,jpg,gif,jpeg")]
-        [Required(ErrorMessage = "Please select an image")]
-        [DisplayName("Upload Image")]
-        public string Image { get; set; }
+       public string Image { get; set; }
 
         [NotMapped]
+        [DisplayName("Upload Image")]
+        [Required(ErrorMessage = "Please select an image")]
+        [MyFIleextension(ErrorMessage ="Select Image only", AllowedExtensions ="jpeg,png,jpg")]
         public HttpPostedFileBase FileName { get; set; } 
 
     }

@@ -5,8 +5,11 @@
 
 @if (Session["email"] != null)
 {
+    
     <!-- CSS only -->
     <h1>User Dashboard</h1>
+    <hr/>
+    <h3>Welcome @Session["email"] </h3>
     <table class="table">
         <thead>
             <tr>

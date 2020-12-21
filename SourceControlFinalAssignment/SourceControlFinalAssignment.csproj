@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="CustomValidations\CityAttribute.cs" />
+    <Compile Include="CustomValidations\MyFIleextension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,6 +158,14 @@
     <Compile Include="Migrations\202012190839146_fifthmigration.cs" />
     <Compile Include="Migrations\202012190839146_fifthmigration.designer.cs">
       <DependentUpon>202012190839146_fifthmigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012210914187_MyfileextensionAdded.cs" />
+    <Compile Include="Migrations\202012210914187_MyfileextensionAdded.designer.cs">
+      <DependentUpon>202012210914187_MyfileextensionAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012210920442_MyfileextensionAddedfirst.cs" />
+    <Compile Include="Migrations\202012210920442_MyfileextensionAddedfirst.designer.cs">
+      <DependentUpon>202012210920442_MyfileextensionAddedfirst.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -238,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012190839146_fifthmigration.resx">
       <DependentUpon>202012190839146_fifthmigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012210914187_MyfileextensionAdded.resx">
+      <DependentUpon>202012210914187_MyfileextensionAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012210920442_MyfileextensionAddedfirst.resx">
+      <DependentUpon>202012210920442_MyfileextensionAddedfirst.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
