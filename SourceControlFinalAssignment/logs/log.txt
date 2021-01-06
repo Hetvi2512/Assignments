@@ -2,3 +2,14 @@ DEBUG 2020-12-21 16:24:34,224 23798ms AccountController      Login              
 WARN  2020-12-21 16:24:39,429 29003ms AccountController      Login              - Email or password already exists
 INFO  2020-12-21 16:25:33,488 83063ms AccountController      Register           - Registration Successfull forhetvishah2512@gmail.com
 INFO  2020-12-21 16:25:38,923 88497ms AccountController      Logout             - Session is unset
+DEBUG 2020-12-21 16:43:22,109 285155ms AccountController      Login              - Before Login
+WARN  2020-12-21 16:43:35,124 298170ms AccountController      Login              - Email or password already exists
+DEBUG 2020-12-21 16:44:01,509 324555ms AccountController      Login              - Before Login
+INFO  2020-12-21 16:44:01,643 324689ms AccountController      Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2020-12-21 16:44:01,644 324690ms AccountController      Login              - After Login
+DEBUG 2020-12-21 16:45:44,009 29511ms AccountController      Login              - Before Login
+INFO  2020-12-21 16:45:46,523 32025ms AccountController      Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2020-12-21 16:45:46,524 32026ms AccountController      Login              - After Login
+INFO  2020-12-21 16:46:05,613 51115ms AccountController      Logout             - Session is unset
+ERROR 2020-12-22 15:13:33,826 220769ms AccountController      Register           - Model state not valid, Registration Unsuccessfull !
+ERROR 2020-12-22 15:16:45,807 58634ms AccountController      Register           - Model state not valid, Registration Unsuccessfull !

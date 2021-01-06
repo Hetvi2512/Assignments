@@ -1,0 +1,134 @@
+﻿@model ProductManage.Models.ProductInfo
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Session["email"] != null)
+{
+    <h2>Product</h2>
+
+    using (Html.BeginForm("Save", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.product_Id)
+        @Html.HiddenFor(m=> m.ImagePath)
+        @Html.HiddenFor(m => m.BigImagePath)
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.product_name)
+            @Html.TextBoxFor(m => m.product_name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.product_name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.product_price)
+            @Html.TextBoxFor(m => m.product_price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.product_price)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.product_category)
+            @Html.DropDownList("product_category", new List<SelectListItem>
+            { new SelectListItem{ Text="Food" , Value="Food"},
+            new SelectListItem{ Text="HealthCare" , Value="HealthCare"},
+            new SelectListItem{ Text="Cosmetics" , Value="HealthCare"},
+            new SelectListItem{ Text="Fashion" , Value="Fashion"},
+             new SelectListItem{ Text="Electronics" , Value="Electronics"}
+
+            }, "Select Product Category", new { @class = "form-control" }
+          )
+            @Html.ValidationMessageFor(model => model.product_category)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.product_qnty)
+            @Html.DropDownList("product_qnty", new List<SelectListItem>
+            { new SelectListItem{ Text="1" , Value="1"},
+            new SelectListItem{ Text="2" , Value="2"},
+            new SelectListItem{ Text="3" , Value="3"},
+            new SelectListItem{ Text="4" , Value="4"},
+            new SelectListItem{ Text="5" , Value="5"}
+
+
+            }, "Select Product Quantity", new { @class = "form-control" }
+          )
+            @Html.ValidationMessageFor(model => model.product_qnty)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.short_desc)
+            @Html.TextAreaFor(m => m.short_desc, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.short_desc)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.long_desc)
+            @Html.TextAreaFor(m => m.long_desc, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.long_desc)
+        </div>
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-primary"> Save</button>
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-outline-secondary" })
+    </div>
+    <div class="col-md-6">
+
+        @Html.LabelFor(m => m.ImagePath, new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <img src="@Url.Content(Model.ImagePath)" style="margin:10px" height="200" width="200" id="preview" />
+           
+            <input type="file" name="ImageFile" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('preview'))" />
+            @Html.ValidationMessageFor(model => model.ImageFile, "", new { @id = "js-validate-file", @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+        @Html.LabelFor(m => m.BigImagePath, new { @class = "control-label col-md-6" })
+        <div class="col-md-10">
+            <img src="@Url.Content(Model.BigImagePath)" style="margin:10px" height="200" width="200" id="previewbig" />
+           <input type="file" name="BigImageFile" accept="image/jpeg, image/png" onchange="ShowImagePreviewBig(this,document.getElementById('previewbig'))" />
+            @Html.ValidationMessageFor(model => model.BigImageFile,"", new { @id = "js-validate-file-large", @class = "text-danger" })
+        </div>
+    </div>
+</div>
+    }
+    @section scripts{
+
+        @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(document).ready(function () {
+
+        //function to validate file extension
+        $("#ImageFile").change(function () {
+
+            $('#js-validate-file').hide();
+            // Get uploaded file extension
+            var extension = $(this).val().split('.').pop().toLowerCase();
+            var validFileExtensions = ['jpeg', 'jpg', 'png'];
+            if ($.inArray(extension, validFileExtensions) == -1) {
+                $('#js-validate-file').text("Only .jpeg, .jpg, and .png files are supported ").show();
+                //clearing fileupload
+                $(this).replaceWith($(this).val('').clone(true));
+            }
+        });
+
+        $("#BigImageFile").change(function () {
+            $('#js-validate-file-large').hide();
+            // Get uploaded file extension
+            var extension = $(this).val().split('.').pop().toLowerCase();
+            var validFileExtensions = ['jpeg', 'jpg', 'png'];
+            if ($.inArray(extension, validFileExtensions) == -1) {
+                $('#js-validate-file-large').text("Only .jpeg, .jpg, and .png files are supported ").show();
+                //clearing fileupload
+                $(this).replaceWith($(this).val('').clone(true));
+            }
+        });
+    });
+</script>
+
+
+    }}
+else
+{
+    <h1>Please Login or Sign-up to view your Details</h1>
+}

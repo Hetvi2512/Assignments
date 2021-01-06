@@ -1,0 +1,77 @@
+﻿@model ProductManage.Models.LoginModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div style="padding-top:20px">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="well">
+                <table class=" table table-bordered">
+                    <thead>
+                        <tr class="success">
+                            <td colspan="2">
+                                New User Registration
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> @Html.LabelFor(model => model.userName)</td>
+                            <td>
+                                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.email)
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.password)
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.confirmPassword)
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.confirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr class="success">
+                            <td colspan="2">
+                                <input type="submit" value="Register" class="btn btn-success" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+}

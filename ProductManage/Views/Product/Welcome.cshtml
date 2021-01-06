@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Welcome";
+}
+    <style>
+        .center {
+            text-align: center;
+            border: 3px solid green;
+        }
+    </style>   
+ <div class="center">
+
+
+        <h2>Welcome @Session["email"] </h2>
+        <img src="~/Images/cart.jpg" style="margin:10px" height="200" width="200" id="previewbig" />
+            <br/>
+         <a href="@Url.Action("Index", "Product")" class="btn btn-primary btn-lg"><i class="fa fa-pencil"> View Products</i></a>
+
+ </div>

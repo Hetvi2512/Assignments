@@ -1,0 +1,57 @@
+﻿@model ProductManage.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+
+    <div style="padding-top:20px">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="well">
+                <table class=" table table-bordered">
+                    <thead>
+                        <tr class="success">
+                            <td colspan="2">
+                               User Login
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.email)
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.LabelFor(model => model.password)
+                            </td>
+                            <td>
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </td>
+                        </tr>
+
+                        <tr class="success">
+                            <td colspan="2">
+                                <input type="submit" value="Login" class="btn btn-success" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    @Html.ValidationMessage("Error", null, new { @class = "text-danger" })
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

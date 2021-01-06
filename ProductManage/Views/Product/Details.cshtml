@@ -1,0 +1,83 @@
+﻿@model ProductManage.Models.ProductInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+@if (Session["email"] != null)
+{
+    <h2>Details</h2>
+
+    <div>
+        <h4>ProductInfo</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.product_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.product_price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.product_qnty)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_qnty)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.product_category)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.product_category)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.short_desc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.short_desc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.long_desc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.long_desc)
+            </dd>
+
+            <dt>
+                Image Gallery :
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.ImagePath)" style="margin:10px" height="200" width="200" id="preview" />
+            </dd>
+            <dd>
+                <img src="@Url.Content(Model.BigImagePath)" style="margin:10px" height="300" width="300" id="preview" />
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+else
+{
+    <h1>Please Login or Sign-up to view your Details</h1>
+}

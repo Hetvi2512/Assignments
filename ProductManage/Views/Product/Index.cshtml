@@ -1,0 +1,114 @@
+﻿@model List<ProductManage.Models.ProductInfo>
+@{
+    ViewBag.Title = "Product List";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#checkboxall').click(function () {
+            if ($(this).is(":checked"))
+                $('.chkid').prop('checked', true);
+            else
+                $('.chkid').prop('checked', false)
+        });
+    });
+</script>
+@if (Session["email"] != null)
+{
+    <h3>Welcome @Session["email"] </h3>
+  
+
+    <p>
+
+        <a href="@Url.Action("New", "Product")" class="btn btn-default"><i class="fa fa-plus"></i> Add new product</a>
+    </p>
+    using (Html.BeginForm("DeleteAll", "Product", FormMethod.Post))
+    {
+    <table id="productTable" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="checkboxall" /></th>
+                <th>Product Image</th>
+                <th>Category</th>
+                <th>Product Name </th>
+                <th>Price (Rs)</th>
+                <th>Description</th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var product in Model)
+            {
+                <tr>
+
+                    <td><input type="checkbox" class="chkid" value="@product.product_Id"  name="deleteItemIDs"/></td>
+                    <td><img src="@Url.Content(product.ImagePath)" alt="@product.product_name" height="100" width="100" /></td>
+                    <td>@product.product_category</td>
+                    <td> @product.product_name</td>
+                    <td> @product.product_price</td>
+                    <td>@product.short_desc</td>
+
+                    <td>
+                        <a href="@Url.Action("New", "Product", new { id = product.product_Id })" class="btn btn-primary btn-sm"><i class="fa fa-pencil"> Edit</i></a>
+                        <a onclick="Delete(@product.product_Id)" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete </a>
+                        <a href="@Url.Action("Details", "Product", new { id = product.product_Id })" class="btn btn-default"><i class="fa fa-pencil"> Details</i></a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+   
+        <input type="submit" class=" btn btn-danger" value="Delete" name="product_Id" onclick="return confirm('Are you sure, you want to delete all this item ?')" />
+   
+    
+    }
+    @section scripts
+{
+  <script>
+    $(function () {
+        var table = $("#productTable").DataTable({
+             "lengthMenu": [ [5, 10, 20, -1], [5, 10, 20, "All"] ]
+        })
+
+        $(function () {
+
+            var successMessage = '@TempData["SuccessMesssage"]'
+            if (successMessage != '') {
+
+                alertify.set('notifier', 'position', 'top-center');
+                alertify.success(successMessage);
+            }
+            
+           
+
+        });
+        $(function () {
+            var errorMessage = '@TempData["ErrorMessage"]'
+            if (errorMessage != '') {
+
+                alertify.set('notifier', 'position', 'top-center');
+                alertify.error(errorMessage);
+            }
+        });
+
+    });
+
+    function Delete(id) {
+        alertify.confirm('Product Management', 'Are you sure, you want to delete this product?', function () {
+
+            window.location.href = '@Url.Action("Delete", "Product")/' + id;
+        }, null);
+
+    }
+
+        </script>
+    }}
+else
+{
+    <h1>Please Login or Sign-up to view your Details</h1>
+}

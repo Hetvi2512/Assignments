@@ -65,7 +65,7 @@ namespace SourceControlFinalAssignment.Models
         [NotMapped]
         [DisplayName("Upload Image")]
         [Required(ErrorMessage = "Please select an image")]
-        [MyFIleextension(ErrorMessage ="Select Image only", AllowedExtensions ="jpeg,png,jpg")]
+        [MyFIleextension(ErrorMessage ="Select Image only, Example .jpg, .jpeg, .png", AllowedExtensions ="jpeg,png,jpg")]
         public HttpPostedFileBase FileName { get; set; } 
 
     }

@@ -1,0 +1,86 @@
+DEBUG 2021-01-05 14:29:53,818 15535ms HomeController         Login              - Before Login
+INFO  2021-01-05 14:30:01,417 23135ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-05 14:30:01,590 23307ms HomeController         Login              - After Login
+INFO  2021-01-05 14:30:08,739 30457ms HomeController         Logout             - Session is unset
+DEBUG 2021-01-05 14:34:57,132 16978ms HomeController         Login              - Before Login
+INFO  2021-01-05 14:35:02,032 21878ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-05 14:35:02,033 21879ms HomeController         Login              - After Login
+INFO  2021-01-05 14:35:12,507 32353ms HomeController         Save               - ProductKeyboardupdated by hetvishah2512@gmail.com
+INFO  2021-01-05 14:35:16,530 36377ms HomeController         Logout             - Session is unset
+DEBUG 2021-01-06 14:06:23,468 173934ms HomeController         Login              - Before Login
+INFO  2021-01-06 14:06:59,081 209547ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 14:06:59,082 209548ms HomeController         Login              - After Login
+INFO  2021-01-06 14:09:56,232 386698ms HomeController         Save               - ProductEnosaved by hetvishah2512@gmail.com
+DEBUG 2021-01-06 14:25:48,061 25816ms HomeController         Login              - Before Login
+INFO  2021-01-06 14:25:48,195 25950ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 14:25:48,197 25952ms HomeController         Login              - After Login
+DEBUG 2021-01-06 15:08:24,845 35475ms HomeController         Login              - Before Login
+INFO  2021-01-06 15:08:25,000 35630ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 15:08:25,005 35635ms HomeController         Login              - After Login
+DEBUG 2021-01-06 15:18:42,852 26578ms HomeController         Login              - Before Login
+INFO  2021-01-06 15:18:42,985 26712ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 15:18:42,986 26713ms HomeController         Login              - After Login
+DEBUG 2021-01-06 16:43:32,834 13123ms HomeController         Login              - Before Login
+INFO  2021-01-06 16:43:40,265 20553ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 16:43:40,265 20553ms HomeController         Login              - After Login
+DEBUG 2021-01-06 16:45:10,074  7975ms HomeController         Login              - Before Login
+INFO  2021-01-06 16:45:12,532 10433ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 16:45:12,533 10434ms HomeController         Login              - After Login
+DEBUG 2021-01-06 16:46:11,742  8508ms HomeController         Login              - Before Login
+INFO  2021-01-06 16:46:14,135 10901ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 16:46:14,136 10902ms HomeController         Login              - After Login
+DEBUG 2021-01-06 17:01:51,907  9170ms HomeController         Login              - Before Login
+INFO  2021-01-06 17:01:58,678 15942ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 17:01:58,678 15942ms HomeController         Login              - After Login
+DEBUG 2021-01-06 17:03:37,390  8250ms HomeController         Login              - Before Login
+INFO  2021-01-06 17:03:39,761 10621ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 17:03:39,762 10622ms HomeController         Login              - After Login
+DEBUG 2021-01-06 17:10:43,268 18240ms HomeController         Login              - Before Login
+INFO  2021-01-06 17:10:43,410 18383ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 17:10:43,412 18385ms HomeController         Login              - After Login
+ERROR 2021-01-06 17:10:47,860 22833ms HomeController         DeleteAll          - Problem occured in deleting multiple item
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ProductManage.Controllers.ProductController.DeleteAll(Int32[] deleteItemIDs) in C:\Users\Hetvi\source\repos\ProductManage\Controllers\ProductController.cs:line 148
+INFO  2021-01-06 17:11:11,156 46129ms HomeController         Save               - ProductKeyboardupdated by hetvishah2512@gmail.com
+ERROR 2021-01-06 17:11:19,021 53993ms HomeController         DeleteAll          - Problem occured in deleting multiple item
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ProductManage.Controllers.ProductController.DeleteAll(Int32[] deleteItemIDs) in C:\Users\Hetvi\source\repos\ProductManage\Controllers\ProductController.cs:line 148
+ERROR 2021-01-06 17:13:19,507 174479ms HomeController         DeleteAll          - Problem occured in deleting multiple item
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ProductManage.Controllers.ProductController.DeleteAll(Int32[] deleteItemIDs) in C:\Users\Hetvi\source\repos\ProductManage\Controllers\ProductController.cs:line 148
+ERROR 2021-01-06 17:14:43,235 258208ms HomeController         DeleteAll          - Problem occured in deleting multiple item
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ProductManage.Controllers.ProductController.DeleteAll(Int32[] deleteItemIDs) in C:\Users\Hetvi\source\repos\ProductManage\Controllers\ProductController.cs:line 148
+ERROR 2021-01-06 17:15:00,605 275577ms HomeController         DeleteAll          - Problem occured in deleting multiple item
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ProductManage.Controllers.ProductController.DeleteAll(Int32[] deleteItemIDs) in C:\Users\Hetvi\source\repos\ProductManage\Controllers\ProductController.cs:line 148
+DEBUG 2021-01-06 18:05:25,488 12547ms HomeController         Login              - Before Login
+DEBUG 2021-01-06 18:05:28,448 15507ms HomeController         Login              - Before Login
+INFO  2021-01-06 18:05:39,009 26068ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 18:05:39,010 26069ms HomeController         Login              - After Login
+INFO  2021-01-06 18:05:39,009 26068ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 18:05:39,011 26070ms HomeController         Login              - After Login
+INFO  2021-01-06 18:06:24,948 72007ms HomeController         Logout             - Session is unset
+DEBUG 2021-01-06 18:07:14,411 121470ms HomeController         Login              - Before Login
+WARN  2021-01-06 18:07:14,416 121475ms HomeController         Login              - Email or password already exists
+DEBUG 2021-01-06 18:07:20,101 127160ms HomeController         Login              - Before Login
+INFO  2021-01-06 18:07:20,104 127163ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 18:07:20,104 127163ms HomeController         Login              - After Login
+INFO  2021-01-06 18:07:36,720 143779ms HomeController         Logout             - Session is unset
+DEBUG 2021-01-06 18:08:02,874 169933ms HomeController         Login              - Before Login
+INFO  2021-01-06 18:08:02,878 169937ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 18:08:02,878 169937ms HomeController         Login              - After Login
+DEBUG 2021-01-06 18:13:01,156 136725ms HomeController         Login              - Before Login
+INFO  2021-01-06 18:13:03,597 139165ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 18:13:03,598 139166ms HomeController         Login              - After Login
+DEBUG 2021-01-06 18:26:52,297 117272ms HomeController         Login              - Before Login
+INFO  2021-01-06 18:26:52,360 117335ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 18:26:52,360 117335ms HomeController         Login              - After Login
+DEBUG 2021-01-06 22:20:35,683 32636ms HomeController         Login              - Before Login
+INFO  2021-01-06 22:20:36,181 33133ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 22:20:36,181 33133ms HomeController         Login              - After Login
+INFO  2021-01-06 22:21:13,462 70414ms HomeController         Logout             - Session is unset
+DEBUG 2021-01-06 22:30:36,112  7464ms HomeController         Login              - Before Login
+INFO  2021-01-06 22:30:43,289 14641ms HomeController         Login              - Session is set forhetvishah2512@gmail.com
+DEBUG 2021-01-06 22:30:43,290 14642ms HomeController         Login              - After Login
+INFO  2021-01-06 22:31:38,498 69851ms HomeController         Save               - ProductKeyboardsaved by hetvishah2512@gmail.com
