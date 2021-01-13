@@ -1,0 +1,561 @@
+{
+	"info": {
+		"_postman_id": "86fc9888-0281-4063-9c04-fbfd5d46b27f",
+		"name": "HotelManagement_WEBAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:64799/api/hotelManagement",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"Hotel_name\": \"Royals Inn\",\r\n        \"Address\": \"Kalawad Road\",\r\n        \"City\": \"Rajkot\",\r\n        \"pinCode\": 360005,\r\n        \"contactNumber\": 9825999999,\r\n        \"contactPerson\": \"Jignesh Shah\",\r\n        \"website\": \"royalsin.com\",\r\n        \"faceBook\": \"royal.facebook.com\",\r\n        \"twitter\": null,\r\n        \"isActive\": true,\r\n        \"createdDate\": null,\r\n        \"createdBy\": \"Jignesh\",\r\n        \"updateDate\": null,\r\n        \"updatedBy\": null,\r\n        \"Rooms\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"Hotel_name\": \"Grand Thakkar\",\r\n        \"Address\": \"Raiya Road\",\r\n        \"City\": \"Rajkot\",\r\n        \"pinCode\": 360007,\r\n        \"contactNumber\": 9825699999,\r\n        \"contactPerson\": \"Hetvi Shah\",\r\n        \"website\": \"Thakkar.com\",\r\n        \"faceBook\": \"Thakkar.facebook.com\",\r\n        \"twitter\": null,\r\n        \"isActive\": true,\r\n        \"createdDate\": null,\r\n        \"createdBy\": \"Hetvi\",\r\n        \"updateDate\": null,\r\n        \"updatedBy\": null,\r\n        \"Rooms\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \r\n        \"Hotel_name\": \"Hill View\",\r\n        \"Address\": \"Mall Road\",\r\n        \"City\": \"Manali\",\r\n        \"pinCode\": 35555,\r\n        \"contactNumber\": 9033792355,\r\n        \"contactPerson\": \"Lary clark\",\r\n        \"website\": \"hillview.com\",\r\n        \"faceBook\": \"hillview.facebook.com\",\r\n        \"twitter\": \"hillview.twitter.com\",\r\n        \"isActive\": true,\r\n        \"createdDate\": null,\r\n        \"createdBy\": \"Lary Clark\",\r\n        \"updateDate\": null,\r\n        \"updatedBy\": null,\r\n        \"Rooms\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/gethotel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Room_Name\":\"Hotel Grand Palace\",\r\n    \"Hotel_Id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/gethotel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"gethotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/postRoom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Hotels_Id\": 7,\r\n        \"Room_Id\": 0,\r\n        \"Room_Name\": \"101-normal\",\r\n        \"Category\": \"small\",\r\n        \"Price\": 500,\r\n        \"isActive\": true,\r\n        \"createdBy\": \"Hetvi\",\r\n        \"updatedBy\": \"Hetvi\",\r\n        \"Booking\": null,\r\n        \"hotel\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/postRoom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"postRoom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/postRoom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Hotels_Id\": 7,\r\n        \"Room_Id\": 0,\r\n        \"Room_Name\": \"909-king Size\",\r\n        \"Category\": \"large\",\r\n        \"Price\": 2500,\r\n        \"isActive\": true,\r\n        \"createdBy\": \"Hetvi\",\r\n        \"updatedBy\": \"Hetvi\",\r\n        \"Booking\": null,\r\n        \"hotel\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/postRoom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"postRoom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/postRoom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Hotels_Id\": 7,\r\n        \"Room_Id\": 0,\r\n        \"Room_Name\": \"110-SingleBed\",\r\n        \"Category\": \"small\",\r\n        \"Price\": 900,\r\n        \"isActive\": true,\r\n        \"createdBy\": \"Hetvi\",\r\n        \"updatedBy\": \"Hetvi\",\r\n        \"Booking\": null,\r\n        \"hotel\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/postRoom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"postRoom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/postRoom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Hotels_Id\": 1,\r\n        \"Room_Id\": 0,\r\n        \"Room_Name\": \"110\",\r\n        \"Category\": \"small\",\r\n        \"Price\": 700,\r\n        \"isActive\": true,\r\n        \"createdBy\": \"Hetvi\",\r\n        \"updatedBy\": \"Hetvi\",\r\n        \"Booking\": null,\r\n        \"hotel\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/postRoom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"postRoom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/room/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"room",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/room",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"room"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/roombycity/Rajkot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"roombycity",
+						"Rajkot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/roombyPincode/360005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"roombyPincode",
+						"360005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/category/small",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"category",
+						"small"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room/checkRoom/5/2021-01-14",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/room/checkRoom/5/2021-01-14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"room",
+						"checkRoom",
+						"5",
+						"2021-01-14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/room/checkRoom/5/2021-01-14",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/room/checkRoom/5/2021-01-17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"room",
+						"checkRoom",
+						"5",
+						"2021-01-17"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/postBooking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Room_Id\": 5,\r\n    \"bookingDate\":\"2021-01-14\",\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/postBooking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"postBooking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/postBooking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Room_Id\": 12,\r\n    \"bookingDate\":\"2021-01-15\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/postBooking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"postBooking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/updateBooking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Room_Id\": 5,\r\n    \"bookingDate\":\"2021-01-19\",\r\n    \"statusOfBooking\":\"Definitive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/updateBooking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"updateBooking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/delete/4",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/delete/4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/gethotel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"gethotel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:64799/api/hotelManagement/delete/4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:64799/api/hotelManagement/city/Manali",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "64799",
+					"path": [
+						"api",
+						"hotelManagement",
+						"city",
+						"Manali"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

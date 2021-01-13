@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="hotelManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="bookingId" />
+          </Key>
+          <Property Name="bookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Room_Id" Type="int" Nullable="false" />
+          <Property Name="bookingDate" Type="datetime" Nullable="false" />
+          <Property Name="statusOfBooking" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hotel">
+          <Key>
+            <PropertyRef Name="Hotel_Id" />
+          </Key>
+          <Property Name="Hotel_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hotel_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pinCode" Type="int" Nullable="false" />
+          <Property Name="contactNumber" Type="varchar" MaxLength="10" />
+          <Property Name="contactPerson" Type="varchar" MaxLength="50" />
+          <Property Name="website" Type="nvarchar" MaxLength="50" />
+          <Property Name="faceBook" Type="varchar" MaxLength="50" />
+          <Property Name="twitter" Type="varchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Room_Id" />
+          </Key>
+          <Property Name="Hotels_Id" Type="int" Nullable="false" />
+          <Property Name="Room_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Room_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Category" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="int" />
+          <Property Name="isActive" Type="bit" />
+          <Property Name="createdBy" Type="varchar" MaxLength="50" />
+          <Property Name="createdDate" Type="datetime" />
+          <Property Name="updatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="updatedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Room_Hotel">
+          <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hotel">
+              <PropertyRef Name="Hotel_Id" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="Hotels_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ins_hotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Hotel_name" Type="varchar" Mode="In" />
+          <Parameter Name="address" Type="varchar(max)" Mode="In" />
+          <Parameter Name="city" Type="varchar" Mode="In" />
+          <Parameter Name="pinCode" Type="int" Mode="In" />
+          <Parameter Name="number" Type="varchar" Mode="In" />
+          <Parameter Name="person" Type="varchar" Mode="In" />
+          <Parameter Name="website" Type="nvarchar" Mode="In" />
+          <Parameter Name="fb" Type="nvarchar" Mode="In" />
+          <Parameter Name="twitter" Type="varchar" Mode="In" />
+          <Parameter Name="isActive" Type="bit" Mode="In" />
+          <Parameter Name="createdBy" Type="varchar" Mode="In" />
+          <Parameter Name="updatedBy" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ins_room" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="hotelId" Type="int" Mode="In" />
+          <Parameter Name="Roomname" Type="varchar" Mode="In" />
+          <Parameter Name="category" Type="varchar" Mode="In" />
+          <Parameter Name="price" Type="int" Mode="In" />
+          <Parameter Name="isActive" Type="bit" Mode="In" />
+          <Parameter Name="createdBy" Type="varchar" Mode="In" />
+          <Parameter Name="updatedBy" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="selectHotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectHotelwithRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="selectRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="selectRoomByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="city" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="selectRoomByPincode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pincode" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="hotelManagementModelStoreContainer">
+          <EntitySet Name="booking" EntityType="Self.booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hotel" EntityType="Self.hotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Room_Hotel" Association="Self.FK_Room_Hotel">
+            <End Role="hotel" EntitySet="hotel" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hotelManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="hotel">
+          <Key>
+            <PropertyRef Name="Hotel_Id" />
+          </Key>
+          <Property Name="Hotel_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hotel_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pinCode" Type="Int32" Nullable="false" />
+          <Property Name="contactNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="contactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="faceBook" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK_Room_Hotel" FromRole="hotel" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="Room_Id" />
+          </Key>
+          <Property Name="Hotels_Id" Type="Int32" Nullable="false" />
+          <Property Name="Room_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Room_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Precision="3" />
+          <Property Name="updatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="hotel" Relationship="Self.FK_Room_Hotel" FromRole="Room" ToRole="hotel" />
+        </EntityType>
+        <Association Name="FK_Room_Hotel">
+          <End Role="hotel" Type="Self.hotel" Multiplicity="1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hotel">
+              <PropertyRef Name="Hotel_Id" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="Hotels_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hotelManagementEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hotels" EntityType="Self.hotel" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <AssociationSet Name="FK_Room_Hotel" Association="Self.FK_Room_Hotel">
+            <End Role="hotel" EntitySet="hotels" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <FunctionImport Name="ins_hotel">
+            <Parameter Name="Hotel_name" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="city" Mode="In" Type="String" />
+            <Parameter Name="pinCode" Mode="In" Type="Int32" />
+            <Parameter Name="number" Mode="In" Type="String" />
+            <Parameter Name="person" Mode="In" Type="String" />
+            <Parameter Name="website" Mode="In" Type="String" />
+            <Parameter Name="fb" Mode="In" Type="String" />
+            <Parameter Name="twitter" Mode="In" Type="String" />
+            <Parameter Name="isActive" Mode="In" Type="Boolean" />
+            <Parameter Name="createdBy" Mode="In" Type="String" />
+            <Parameter Name="updatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ins_room">
+            <Parameter Name="hotelId" Mode="In" Type="Int32" />
+            <Parameter Name="Roomname" Mode="In" Type="String" />
+            <Parameter Name="category" Mode="In" Type="String" />
+            <Parameter Name="price" Mode="In" Type="Int32" />
+            <Parameter Name="isActive" Mode="In" Type="Boolean" />
+            <Parameter Name="createdBy" Mode="In" Type="String" />
+            <Parameter Name="updatedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="selectHotel" ReturnType="Collection(hotelManagementModel.selectHotel_Result)" />
+          <FunctionImport Name="selectHotelwithRoom">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="selectRoom" ReturnType="Collection(hotelManagementModel.selectRoom_Result)" />
+          <FunctionImport Name="selectRoomByCity" ReturnType="Collection(hotelManagementModel.selectRoomByCity_Result)">
+          <Parameter Name="city" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="postBooking">
+            <Parameter Name="roomid" Mode="In" Type="Int32" />
+            <Parameter Name="Bookingdate" Mode="In" Type="DateTime" />
+            <Parameter Name="status" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="bookings" EntityType="hotelManagementModel.booking" />
+          <FunctionImport Name="selectRoomByPincode" ReturnType="Collection(hotelManagementModel.selectRoomByPincode_Result)">
+          <Parameter Name="pincode" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="selectHotel_Result">
+          <Property Type="Int32" Name="Hotel_Id" Nullable="false" />
+          <Property Type="String" Name="Hotel_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="pinCode" Nullable="false" />
+          <Property Type="String" Name="contactNumber" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="contactPerson" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="website" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="faceBook" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="twitter" Nullable="true" MaxLength="50" />
+          <Property Type="Boolean" Name="isActive" Nullable="true" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="createdBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="updateDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="updatedBy" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="selectRoom_Result">
+          <Property Type="Int32" Name="Hotels_Id" Nullable="false" />
+          <Property Type="Int32" Name="Room_Id" Nullable="false" />
+          <Property Type="String" Name="Room_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Price" Nullable="true" />
+          <Property Type="Boolean" Name="isActive" Nullable="true" />
+          <Property Type="String" Name="createdBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="createdDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="updatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="updatedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="selectRoomByCity_Result">
+          <Property Type="String" Name="Room_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Price" Nullable="true" />
+          <Property Type="String" Name="createdBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Hotel_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="booking">
+          <Key>
+            <PropertyRef Name="bookingId" />
+          </Key>
+          <Property Name="bookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Room_Id" Type="Int32" Nullable="false" />
+          <Property Name="bookingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="statusOfBooking" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="selectRoomByPincode_Result">
+          <Property Type="String" Name="Room_Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="Price" Nullable="true" />
+          <Property Type="String" Name="createdBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Hotel_name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hotelManagementModelStoreContainer" CdmEntityContainer="hotelManagementEntity">
+          <EntitySetMapping Name="hotels">
+            <EntityTypeMapping TypeName="hotelManagementModel.hotel">
+              <MappingFragment StoreEntitySet="hotel">
+                <ScalarProperty Name="Hotel_Id" ColumnName="Hotel_Id" />
+                <ScalarProperty Name="Hotel_name" ColumnName="Hotel_name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="pinCode" ColumnName="pinCode" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="faceBook" ColumnName="faceBook" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="hotelManagementModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="Hotels_Id" ColumnName="Hotels_Id" />
+                <ScalarProperty Name="Room_Id" ColumnName="Room_Id" />
+                <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ins_hotel" FunctionName="hotelManagementModel.Store.ins_hotel" />
+          <FunctionImportMapping FunctionImportName="ins_room" FunctionName="hotelManagementModel.Store.ins_room" />
+          <FunctionImportMapping FunctionImportName="selectHotel" FunctionName="hotelManagementModel.Store.selectHotel">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hotelManagementModel.selectHotel_Result">
+                <ScalarProperty Name="Hotel_Id" ColumnName="Hotel_Id" />
+                <ScalarProperty Name="Hotel_name" ColumnName="Hotel_name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="pinCode" ColumnName="pinCode" />
+                <ScalarProperty Name="contactNumber" ColumnName="contactNumber" />
+                <ScalarProperty Name="contactPerson" ColumnName="contactPerson" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="faceBook" ColumnName="faceBook" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectHotelwithRoom" FunctionName="hotelManagementModel.Store.selectHotelwithRoom" />
+          <FunctionImportMapping FunctionImportName="selectRoom" FunctionName="hotelManagementModel.Store.selectRoom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hotelManagementModel.selectRoom_Result">
+                <ScalarProperty Name="Hotels_Id" ColumnName="Hotels_Id" />
+                <ScalarProperty Name="Room_Id" ColumnName="Room_Id" />
+                <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="updatedBy" ColumnName="updatedBy" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="selectRoomByCity" FunctionName="hotelManagementModel.Store.selectRoomByCity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hotelManagementModel.selectRoomByCity_Result">
+                <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="Hotel_name" ColumnName="Hotel_name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="bookings">
+            <EntityTypeMapping TypeName="hotelManagementModel.booking">
+              <MappingFragment StoreEntitySet="booking">
+                <ScalarProperty Name="statusOfBooking" ColumnName="statusOfBooking" />
+                <ScalarProperty Name="bookingDate" ColumnName="bookingDate" />
+                <ScalarProperty Name="Room_Id" ColumnName="Room_Id" />
+                <ScalarProperty Name="bookingId" ColumnName="bookingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="selectRoomByPincode" FunctionName="hotelManagementModel.Store.selectRoomByPincode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="hotelManagementModel.selectRoomByPincode_Result">
+                <ScalarProperty Name="Room_Name" ColumnName="Room_Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="Hotel_name" ColumnName="Hotel_name" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
