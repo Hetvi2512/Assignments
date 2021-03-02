@@ -42,24 +42,31 @@ namespace TestingAssignment2
             return updatedString.ToString().Remove(updatedString.Length - 1);
         }
 
-        public static bool LowerCase(this string inputString)
+        public static string LowerCase(this string input)
         {
-            bool isLower = true;
-            for (int index = 0; index < inputString.Length; index++)
+            StringBuilder str = new StringBuilder(input);
+            int ln = str.Length;
+
+            for (int i = 0; i < ln; i++)
             {
-                if (Char.IsUpper(inputString[index]))
-                {
-                    isLower = false;
-                    break;
-                }
+                if (str[i] >= 'A' && str[i] <= 'Z')
+                    str[i] = (char)(str[i] + 32);
             }
-            return isLower ? true : false;
+            return str.ToString(); 
         }
-            public static string Capitalize(this string inputString)
+        public static String AddUpperCase(this String input)
+        {
+            StringBuilder str = new StringBuilder(input);
+            int ln = str.Length;
+
+            for (int i = 0; i < ln; i++)
             {
-                return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(inputString);
+                if (str[i] >= 'a' && str[i] <= 'z')
+                    str[i] = (char)(str[i] - 32);
             }
-            public static bool IsUpperCaseString(this string inputString)
+            return str.ToString();
+        }
+        public static bool IsUpperCaseString(this string inputString)
             {
                 bool isUpper = true;
                 for (int index = 0; index < inputString.Length; index++)

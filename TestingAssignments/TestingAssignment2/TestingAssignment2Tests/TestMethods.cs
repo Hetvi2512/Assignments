@@ -11,10 +11,10 @@ namespace TestingAssignment2Tests
         public void Test_ChangeCase()
         {
             // Arrange
-            var inputString = "Hetvi";
+            var input = "Hetvi";
             var outputString = "hetvi";
             // Act
-            var newString = inputString.CreateUpperCase();
+            var newString = input.CreateUpperCase();
             // Assert
             Assert.Equal(newString, outputString);
         }
@@ -22,64 +22,55 @@ namespace TestingAssignment2Tests
         public void Test_ChangeToTitleCase()
         {
             // Arrange
-            var inputString = "hello world, what's up ?";
+            var input = "hello world, what's up ?";
             var outputString = "Hello World, What's Up ?";
             // Act
-            var newString = inputString.TitleCase();
+            var newString = input.TitleCase();
             // Assert
             Assert.Equal(newString, outputString);
         }
         [Fact]
         public void Test_IsLowerCaseString()
-        {
-            // Arrange
-            var inputString = "hetvishah";
+        { //Arrange
+            var input = "MEET";
+            var expectedValue = "meet";
             // Act
-            var newString = inputString.LowerCase();
-            // Assert
-            Assert.True(newString);
+            var result = input.LowerCase();
+            //Assert
+            Assert.Equal(expectedValue, result);
+        
         }
         [Fact]
         public void Test_IsUpperCaseString()
         {
             // Arrange
-            var inputString = "HETVI";
+            var input = "HETVI";
             // Act
-            var newString = inputString.IsUpperCaseString();
+            var newString = input.IsUpperCaseString();
             // Assert
             Assert.True(newString);
         }
         [Fact]
-        public void Test_DoCapitalize()
+      
+        public void Test_AddUpperCase()
         {
-            // Arrange
-            var inputString = "hetvi";
-            var outputString = "HETVI";
+            //Arrange
+            var input = "hetvi";
+            var expectedValue = "HETVI";
             // Act
-            var newString = inputString.Capitalize();
-            // Assert
-            Assert.Equal(newString, outputString);
+            var result = input.AddUpperCase();
+            //Assert
+            Assert.Equal(expectedValue, result);
         }
-        [Theory]
-        [InlineData("56", true)]
-        [InlineData("12d", false)]
-        public void Test_IsValidNumericValue(string inputString, bool result)
-        {
-            // Arrange
-
-            // Act
-            var newString = inputString.IsValidNumericValue();
-            // Assert
-            Assert.Equal(newString, result);
-        }
+       
         [Fact]
         public void Test_RemoveLastCharacter()
         {
             // Arrange
-            var inputString = "HetviShah";
+            var input = "HetviShah";
             var outputString = "HetviSha";
             // Act
-            var newString = inputString.RemoveLastCharacter();
+            var newString = input.RemoveLastCharacter();
             // Assert
             Assert.Equal(newString, outputString);
         }
@@ -87,10 +78,10 @@ namespace TestingAssignment2Tests
         public void Test_WordCount()
         {
             // Arrange
-            var inputString = "Hello World";
+            var input = "Hello World";
             var count = 2;
             // Act
-            var newString = inputString.WordCount();
+            var newString = input.WordCount();
             // Assert
             Assert.Equal(newString, count);
         }
@@ -98,10 +89,10 @@ namespace TestingAssignment2Tests
         public void Test_StringToInteger()
         {
             // Arrange
-            var inputString = "78765";
+            var input = "78765";
             var output = 123;
             // Act
-            var newString = inputString.StringToInteger();
+            var newString = input.StringToInteger();
             // Assert
             Assert.Equal(newString, output);
         }
