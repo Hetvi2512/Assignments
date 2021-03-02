@@ -17,7 +17,7 @@ namespace TestingAssignment2
             }
             return inputstring;
         }
-        public static string toTitleCase(this string inputString)
+        public static string TitleCase(this string inputString)
         {
             StringBuilder updatedString = new StringBuilder();
             string[] inputStringArray = inputString.Split(' ');
@@ -42,7 +42,7 @@ namespace TestingAssignment2
             return updatedString.ToString().Remove(updatedString.Length - 1);
         }
 
-        public static bool isLowerCase(this string inputString)
+        public static bool LowerCase(this string inputString)
         {
             bool isLower = true;
             for (int index = 0; index < inputString.Length; index++)
@@ -55,7 +55,7 @@ namespace TestingAssignment2
             }
             return isLower ? true : false;
         }
-            public static string doCapitalize(this string inputString)
+            public static string Capitalize(this string inputString)
             {
                 return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(inputString);
             }
@@ -72,19 +72,19 @@ namespace TestingAssignment2
                 }
                 return isUpper ? true : false;
             }
-            public static bool isValidNumericValue(this string inputString)
+            public static bool IsValidNumericValue(this string inputString)
             {
                 return int.TryParse(inputString, out int n);
             }
-            public static string removeLastCharacter(this string inputString)
+            public static string RemoveLastCharacter(this string inputString)
             {
                 return inputString.Remove(inputString.Length - 1);
             }
-            public static int wordCount(this string inputString)
+            public static int WordCount(this string inputString)
             {
                 return inputString.Split(' ').Length;
             }
-            public static int stringToInteger(this string inputString)
+            public static int StringToInteger(this string inputString)
             {
                 int.TryParse(inputString, out int n);
                 return n;

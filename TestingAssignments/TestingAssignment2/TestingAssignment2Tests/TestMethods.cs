@@ -25,7 +25,7 @@ namespace TestingAssignment2Tests
             var inputString = "hello world, what's up ?";
             var outputString = "Hello World, What's Up ?";
             // Act
-            var newString = inputString.toTitleCase();
+            var newString = inputString.TitleCase();
             // Assert
             Assert.Equal(newString, outputString);
         }
@@ -35,7 +35,7 @@ namespace TestingAssignment2Tests
             // Arrange
             var inputString = "hetvishah";
             // Act
-            var newString = inputString.isLowerCase();
+            var newString = inputString.LowerCase();
             // Assert
             Assert.True(newString);
         }
@@ -56,7 +56,7 @@ namespace TestingAssignment2Tests
             var inputString = "hetvi";
             var outputString = "HETVI";
             // Act
-            var newString = inputString.doCapitalize();
+            var newString = inputString.Capitalize();
             // Assert
             Assert.Equal(newString, outputString);
         }
@@ -68,7 +68,7 @@ namespace TestingAssignment2Tests
             // Arrange
 
             // Act
-            var newString = inputString.isValidNumericValue();
+            var newString = inputString.IsValidNumericValue();
             // Assert
             Assert.Equal(newString, result);
         }
@@ -79,7 +79,7 @@ namespace TestingAssignment2Tests
             var inputString = "HetviShah";
             var outputString = "HetviSha";
             // Act
-            var newString = inputString.removeLastCharacter();
+            var newString = inputString.RemoveLastCharacter();
             // Assert
             Assert.Equal(newString, outputString);
         }
@@ -90,7 +90,7 @@ namespace TestingAssignment2Tests
             var inputString = "Hello World";
             var count = 2;
             // Act
-            var newString = inputString.wordCount();
+            var newString = inputString.WordCount();
             // Assert
             Assert.Equal(newString, count);
         }
@@ -101,7 +101,7 @@ namespace TestingAssignment2Tests
             var inputString = "78765";
             var output = 123;
             // Act
-            var newString = inputString.stringToInteger();
+            var newString = inputString.StringToInteger();
             // Assert
             Assert.Equal(newString, output);
         }
