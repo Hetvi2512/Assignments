@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -313,26 +314,29 @@ namespace WEBAPI.DAL.Repository
         {
             try
             {
-                var availablity = hm.bookings.Single(c => c.Room_Id == id);
-               if(availablity != null)
+                var availablity = hm.bookings.Where(c => c.Room_Id == id && DbFunctions.TruncateTime(c.bookingDate) == date).FirstOrDefault();
+               if(availablity == null)
                 {
-                    if(availablity.bookingDate == date)
-                    {
-                        if(availablity.statusOfBooking == statusOfBooking.Cancelled.ToString() || availablity.statusOfBooking == statusOfBooking.Definitive.ToString())
-                        {
-                            return true;
-                        }
-                        return false;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+
+                    /* if(availablity.bookingDate == date)
+                     {
+                         if(availablity.statusOfBooking == statusOfBooking.Cancelled.ToString() || availablity.statusOfBooking == statusOfBooking.Definitive.ToString())
+                         {
+                             return true;
+                         }
+                         return false;
+                     }
+                     else
+                     {
+                         return false;
+                     }*/
+                    return true;
                 }
                 return false;
             }
             catch(Exception ex)
             {
+                
                 return false;
             }
         }
@@ -340,16 +344,21 @@ namespace WEBAPI.DAL.Repository
         {
             try
             {
-                if(book!=null)
+                var av = AvailablityOfRoom(book.Room_Id, book.bookingDate);
+                if(av == true )
                 {
-                    booking newBooking = new booking();
-                    newBooking.Room_Id = book.Room_Id;
-                    newBooking.bookingDate = book.bookingDate;
-                    newBooking.statusOfBooking = statusOfBooking.Definitive.ToString();
+                    if (book != null)
+                    {
+                        booking newBooking = new booking();
+                        newBooking.Room_Id = book.Room_Id;
+                        newBooking.bookingDate = book.bookingDate;
+                        newBooking.statusOfBooking = statusOfBooking.Optional.ToString();
 
-                    hm.bookings.Add(newBooking);
-                    hm.SaveChanges();
-                    return "Room Booked Successfully";
+                        hm.bookings.Add(newBooking);
+                        hm.SaveChanges();
+                        return "Room Booked Successfully";
+                    }
+                    return "Room Booking unsuccessfull";
                 }
                 return "Room Booking unsuccessfull";
             }

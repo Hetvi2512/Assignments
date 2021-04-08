@@ -8,7 +8,7 @@ using WEBAPI.BAL.Interface;
 
 namespace WEBAPI.Controllers
 {
-    [Authorize]
+    
     [RoutePrefix("api/hotelManagement")]
     public class hotelManagementController : ApiController
     {
