@@ -1,3 +1,11 @@
+# Demo video of todo list
+
+https://user-images.githubusercontent.com/48653193/114156354-1be6cf80-9940-11eb-8115-d6224b0fc372.mp4
+
+# Mobile View
+
+![image](https://user-images.githubusercontent.com/48653193/114156698-7849ef00-9940-11eb-8063-f2dcf0d4244b.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
