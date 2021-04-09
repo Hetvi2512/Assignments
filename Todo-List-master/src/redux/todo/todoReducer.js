@@ -14,10 +14,9 @@ const todoReducer = (state = todos, action) => {
   let id;
   switch (action.type) {
     case ADD_TODO:
-      console.log("Case", action.payload);
       newTodos = [...state];
       newTodos.push(action.payload);
-      console.log(newTodos);
+
       return newTodos;
 
     case EDIT_TODO:
@@ -40,17 +39,13 @@ const todoReducer = (state = todos, action) => {
 
     case DELETE_TODO:
       newTodos = [...state];
-      console.log(action.payload);
-      console.log(newTodos.indexOf(action.payload));
       newTodos.splice(newTodos.indexOf(action.payload), 1);
       return newTodos;
 
     case IS_COMPLETED:
       newTodos = [...state];
-      console.log(action.payload);
       id = newTodos.indexOf(action.payload);
 
-      console.log("index", id);
       if (action.payload.isCompleted === true) {
         newTodos[id].isCompleted = false;
       } else {
@@ -64,14 +59,12 @@ const todoReducer = (state = todos, action) => {
       return totalList;
 
     case COMPLETED:
-      console.log("KO");
       newTodos = [...state];
       const completedList = newTodos.map((item) => {
         return !item.isCompleted
           ? { ...item, isVisible: false }
           : { ...item, isVisible: true };
       });
-      console.log(completedList);
       return completedList;
     case INCOMPLETE:
       newTodos = [...state];
@@ -81,7 +74,6 @@ const todoReducer = (state = todos, action) => {
           ? { ...item, isVisible: false }
           : { ...item, isVisible: true };
       });
-      console.log(activeList);
       return activeList;
 
     default:

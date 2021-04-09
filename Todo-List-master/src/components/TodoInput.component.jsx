@@ -49,7 +49,6 @@ export default function TodoInput() {
 
                 return;
               }
-              console.log("Clcik");
               dispatch(
                 addTodo({
                   id: Date.now(),

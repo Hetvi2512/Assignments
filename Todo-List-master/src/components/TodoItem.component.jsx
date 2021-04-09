@@ -40,7 +40,6 @@ export default function TodoItem({ todo }) {
   const handleCheck = () => {
     dispatch(markTodo(todo));
   };
-  console.log(todo);
   return (
     <div>
       <div>
