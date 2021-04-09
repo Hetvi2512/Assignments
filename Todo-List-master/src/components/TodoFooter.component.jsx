@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { allTodo, completedTodo, incompleteTodo } from "../redux";
 import Button from "@material-ui/core/Button";
 export default function TodoFooter() {
-  let todos = useSelector(state => state.todo);
-  
+  let todos = useSelector((state) => state.todo);
+
   const dispatch = useDispatch();
 
   return (

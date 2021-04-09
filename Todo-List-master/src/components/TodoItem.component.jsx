@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Delete, Build, Save } from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
-
+import { Input } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   ListItem,
   Paper,
   Grid,
   ListItemText,
+  TextField,
   ListItemSecondaryAction,
 } from "@material-ui/core";
 
@@ -34,6 +35,8 @@ export default function TodoItem({ todo }) {
   const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState(todo.name);
+
+  const [error, setError] = useState(false);
   const handleCheck = () => {
     dispatch(markTodo(todo));
   };
@@ -48,15 +51,17 @@ export default function TodoItem({ todo }) {
               color="primary"
               onChange={handleCheck}
             />
-            <ListItemText>
+            <ListItemText style={{ overflow: "auto" }}>
               {edit ? (
-                <input
+                <TextField
                   type="text"
                   value={name}
+                  required={true}
+                  variant="outlined"
                   onChange={(e) => {
                     setName(e.target.value);
                   }}
-                  minLength="3"
+                  style={{ width: "50%" }}
                 />
               ) : (
                 <div>{todo.name}</div>
@@ -64,6 +69,11 @@ export default function TodoItem({ todo }) {
             </ListItemText>
             <IconButton
               onClick={() => {
+                if (!name.trim()) {
+                  setError(true);
+
+                  return;
+                }
                 dispatch(
                   editTodo({
                     todo,
@@ -71,7 +81,7 @@ export default function TodoItem({ todo }) {
                   })
                 );
                 if (editTodo) {
-                  console.log("IF");
+                  setError(false);
                   setName(name);
                 }
                 setEdit(!edit);
@@ -87,13 +97,7 @@ export default function TodoItem({ todo }) {
                 <EditRoundedIcon fontSize="small" />
               )}
             </IconButton>
-            {/* <Button
-              variant="contained"
-              color="secondary"
-              style={{ width: "10%" }}
-              startIcon={<DeleteIcon />}
-              onClick={() => dispatch(deleteTodo(todo))}
-           />*/}
+
             <IconButton
               color="secondary"
               onClick={() => dispatch(deleteTodo(todo))}
@@ -101,6 +105,16 @@ export default function TodoItem({ todo }) {
               <Delete fontSize="small" />
             </IconButton>
           </ListItem>
+          {error ? (
+            <p
+              className="error"
+              style={{ color: "red", textAlign: "left", marginLeft: "5%" }}
+            >
+              You must enter a value!
+            </p>
+          ) : (
+            <></>
+          )}
         </Paper>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
+
 import { makeStyles } from "@material-ui/core/styles";
 import TodoInput from "../components/TodoInput.component";
 import TodoList from "../components/TodoList.component";
@@ -23,16 +23,12 @@ export default function Todo() {
   const classes = useStyles();
   return (
     <div>
-      <AppBar color="primary" position="static" style={{ height: 64 }}>
-        <Toolbar style={{ height: 64 }}>
-          <Typography color="inherit">TODO APP</Typography>
-        </Toolbar>
-      </AppBar>
       <Container
-        // maxWidth="sm"
+        //maxWidth="sm"
         className={classes.root}
         style={{ backgroundColor: "#efefef" }}
       >
+        <h2>Your Todo List</h2>
         <TodoInput />
         <TodoList />
         <br />
